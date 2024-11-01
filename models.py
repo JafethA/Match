@@ -44,3 +44,45 @@ class supplier(BaseModel):
     gateway_inf=Column(String(30), nullable=True)
     supplier_company=Column(String(30), ForeignKey('users.id'))
 
+class Cross_Match(BaseModel):
+    __tablename__='CrossM'
+    id = Column(Integer, primary_key=True,index=True)
+    RecordID = Column(Integer, primary_key=True)
+    NAICS = Column(Integer, nullable=False)
+    DESCRIPTION = Column(String(100))
+    Core18=Column(String(20))
+    Core4=Column(String(5))
+    ENSequence=Column(Integer)
+    ECodingS=Column(String(20))
+    KeywordED=Column(String(50))
+
+class Directory(BaseModel):
+    __tablename__="Directory"
+    id = Column(Integer, primary_key=True)
+    CName = Column(String(50), nullable=False)
+    DBAName = Column(String(50), nullable=True)
+    OwnerFirst = Column(String(20),nullable=False)
+    OwnerLast = Column(String(20), nullable=False)
+    Address = Column(String(50), nullable=False)
+    City = Column(String(30),nullable=False)
+    State = Column(String(10),nullable=False)
+    Zip = Column(String(10),nullable=False)
+    mail_Adress = Column(String(50),nullable=False)
+    City_1 = Column(String(30),nullable=False)
+    State_1 = Column(String(10),nullable=False)
+    Zip_1 = Column(String(10),nullable=False)
+    Phone = Column(String(15), nullable=False)
+    Fax = Column(String(15),nullable=True)
+    email = Column(String(30),nullable=False)
+    Website = Column(String(40),nullable=False)
+    Agency = Column(String(10), nullable=False)
+    Certification_type = Column(String(10), nullable=False)
+    Certified = Column(String(20), nullable=False)
+    Keywords = Column(String(100), nullable=False)
+    Work_Districs_Regions = Column(String(40), nullable=False)
+    Industry = Column(String(50),nullable=False)
+    Business_size = Column(String(30), nullable=False)
+    General_Location = Column(String(30),nullable=False)
+    Location = Column(String(30), nullable=False)
+
+
