@@ -17,8 +17,11 @@ def read_CM( ):
 
 @app.get("/NAICS")
 def read_CM( ):
-    NDF=db.execute(select(models.Cross_Match.NAICS)).all()
-    return (NDF)
+    con=sq3.connect("Match.db")
+    NDF=pd.read_sql("SELECT NAICS FROM CrossM",con)
+    R=NDF.to_json(orient="records")    
+    return (R)
+
 
 @app.get("/supplier")
 def read_CM( ):
